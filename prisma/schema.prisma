@@ -1,0 +1,141 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id      String    @id @default(uuid())
+  name    String    @unique
+  Product Product[]
+}
+
+model Product {
+  id           String         @id @default(uuid())
+  title        String
+  description  String
+  inStock      Int
+  price        Float          @default(0)
+  sizes        Size[]         @default([])
+  slug         String         @unique
+  tags         String[]       @default([])
+  gender       Gender
+  
+  OrderItem    OrderItem[]
+  category     Category       @relation(fields: [categoryId], references: [id])
+  categoryId   String
+  ProductImage ProductImage[]
+
+  @@index([gender])
+}
+
+model ProductImage {
+  id        Int     @id @default(autoincrement())
+  url       String
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model User {
+  id            String       @id @default(cuid())
+  firstname     String
+  lastname      String
+  email         String       @unique
+  password      String
+  emailVerified DateTime?
+  rol           Rol          @default(user)
+  image         String?
+  Order         Order[]
+  address       UserAddress?
+}
+
+model Country {
+  id           String         @id
+  name         String
+  OrderAddress OrderAddress[]
+  UserAddress  UserAddress[]
+}
+
+model UserAddress {
+  id           String  @id @default(uuid())
+  firstname    String
+  lastname     String
+  address      String
+  postalCode   String
+  city         String
+  phone        String
+  instructions String
+  countryId    String
+  userId       String  @unique
+  country      Country @relation(fields: [countryId], references: [id])
+  user         User    @relation(fields: [userId], references: [id])
+}
+
+model Order {
+  id            String        @id @default(uuid())
+  itemInOrder   Int
+  total         Float
+  subtotal      Float
+  tax           Float
+  isPaid        Boolean       @default(false)
+  paidAt        DateTime?
+  createAt      DateTime      @default(now())
+  updateAt      DateTime      @updatedAt
+  userId        String
+  transactionId String?
+  user          User          @relation(fields: [userId], references: [id])
+  OrderAddress  OrderAddress?
+  OrderItem     OrderItem[]
+}
+
+model OrderItem {
+  id        String  @id @default(uuid())
+  quantity  Int
+  price     Float
+  size      Size
+  orderId   String
+  productId String
+  order     Order   @relation(fields: [orderId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model OrderAddress {
+  id           String  @id @default(uuid())
+  firstname    String
+  lastname     String
+  address      String
+  postalCode   String
+  city         String
+  state        String
+  phone        String
+  instructions String
+  countryId    String
+  orderId      String  @unique
+  country      Country @relation(fields: [countryId], references: [id])
+  order        Order   @relation(fields: [orderId], references: [id])
+}
+
+enum Rol {
+  user
+  admin
+}
+
+enum Size {
+  XS
+  S
+  M
+  L
+  XL
+  XXL
+  XXXL
+}
+
+enum Gender {
+  men
+  women
+  kid
+  unisex
+}

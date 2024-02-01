@@ -1,0 +1,16 @@
+"use server";
+
+import prisma from "@/lib/prisma";
+
+export const getcategories = async () => {
+  try {
+    const categories = await prisma.category.findMany({
+      orderBy: {
+        name: "desc",
+      },
+    });
+    return categories;
+  } catch (error) {
+    return [];
+  }
+};
