@@ -1,7 +1,7 @@
 "use client";
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { CiSettings, CiUser, CiDeliveryTruck, CiShop } from "react-icons/ci";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const linkadmin = [
@@ -36,7 +36,7 @@ const linkuser = [
 ];
 
 export const Linksadmin = () => {
-  // const router = useRouter();
+  const router = useRouter();
   return (
     <>
       {linkadmin.map((item) => (
@@ -45,10 +45,10 @@ export const Linksadmin = () => {
           className="text-muted-foreground flex cursor-pointer items-center gap-2 text-xs"
         >
           {item.icon}
-          {/* <button type="button" onClick={() => router.push(`${item.path}`)}>
+          <button type="button" onClick={() => router.push(`${item.path}`)}>
             {item.title}
-          </button> */}
-          <Link href={item.path}>{item.title}</Link>
+          </button>
+          {/* <Link href={item.path}>{item.title}</Link> */}
         </DropdownMenuItem>
       ))}
     </>
@@ -57,6 +57,7 @@ export const Linksadmin = () => {
 
 export const Linksuser = () => {
   const router = useRouter();
+
   return (
     <>
       {linkuser.map((item) => (
@@ -65,10 +66,10 @@ export const Linksuser = () => {
           className="text-muted-foreground flex cursor-pointer items-center gap-2 text-xs"
         >
           {item.icon}
-          {/* <button type="button" onClick={() => router.push(`${item.path}`)}>
+          <button type="button" onClick={() => router.push(`${item.path}`)}>
             {item.title}
-          </button> */}
-          <Link href={item.path}>{item.title}</Link>
+          </button>
+          {/* <Link href={item.path}>{item.title}</Link> */}
         </DropdownMenuItem>
       ))}
     </>
