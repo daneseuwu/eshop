@@ -2,7 +2,6 @@
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { CiSettings, CiUser, CiDeliveryTruck, CiShop } from "react-icons/ci";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 const linkadmin = [
   {
@@ -19,6 +18,11 @@ const linkadmin = [
     title: "Users",
     path: "/admin/users",
     icon: <CiUser size={20} />,
+  },
+  {
+    title: "Setting",
+    path: "/setting",
+    icon: <CiSettings size={20} />,
   },
 ];
 
