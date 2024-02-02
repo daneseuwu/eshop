@@ -26,9 +26,9 @@ const Page = async ({ params, searchParams }: Props) => {
   }
 
   return (
-    <div>
+    <main>
       <ProductList products={products} />
-    </div>
+    </main>
   );
 };
 

@@ -45,7 +45,7 @@ const Addtocart = ({ product }: Props) => {
   };
 
   return (
-    <div>
+    <main>
       <SizeSelector
         availableSize={product.sizes}
         selectedSize={size}
@@ -62,7 +62,7 @@ const Addtocart = ({ product }: Props) => {
       <CardFooter>
         <Button onClick={() => addTocart()}>Add to cart</Button>
       </CardFooter>
-    </div>
+    </main>
   );
 };
 

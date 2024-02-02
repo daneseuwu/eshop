@@ -1,18 +1,17 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import {  CardContent, CardFooter, CardHeader } from "../ui/card";
+import { CardContent, CardFooter, CardHeader } from "../ui/card";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { useCartStore } from "@/store/cart/product";
 import { currencyFormat } from "@/utils/format";
 
-
 const Summary = () => {
   const [loading, setLoading] = useState(false);
 
   const { subtotal, taxes, total, itemsInCart } = useCartStore((state) =>
-    state.getSummaryInformation()
+    state.getSummaryInformation(),
   );
 
   useEffect(() => {
@@ -23,25 +22,22 @@ const Summary = () => {
     return;
   }
   return (
-    <div className="border rounded-xl h-72">
-      <CardHeader className="text-xl font-medium">
-        Purchase details
-      </CardHeader>
-      <CardContent className="flex justify-between items-center">
+    <div className="h-72 rounded-xl border">
+      <CardContent className="flex items-center justify-between">
         <Label>No. Products</Label>
         <Label>{itemsInCart} products</Label>
       </CardContent>
-      <CardContent className="flex justify-between items-center">
+      <CardContent className="flex items-center justify-between">
         <Label>Subtotal</Label>
         <Label>{currencyFormat(subtotal)}</Label>
       </CardContent>
 
-      <CardContent className="flex justify-between items-center">
+      <CardContent className="flex items-center justify-between">
         <Label>Taxes 5%</Label>
         <Label>{currencyFormat(taxes)}</Label>
       </CardContent>
 
-      <CardContent className="flex justify-between items-center">
+      <CardContent className="flex items-center justify-between">
         <Label>Total</Label>
         <Label>{currencyFormat(total)}</Label>
       </CardContent>

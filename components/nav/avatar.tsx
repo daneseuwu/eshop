@@ -8,7 +8,7 @@ import {
 } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { auth, signOut } from "@/auth";
-import { Linksadmin, Linksuser } from "./private/links";
+import { Linksadmin, Linksuser } from "./links";
 
 const Avatars = async () => {
   const session = await auth();
@@ -17,7 +17,7 @@ const Avatars = async () => {
     <DropdownMenu>
       <DropdownMenuTrigger
         asChild={true}
-        className="bg-clip-border cursor-pointer"
+        className="cursor-pointer bg-clip-border"
       >
         <Avatar>
           <AvatarImage src={session?.user?.image} alt="avatar" />
@@ -30,7 +30,7 @@ const Avatars = async () => {
 
       <DropdownMenuContent align="end" sideOffset={11}>
         <DropdownMenuItem>
-          <div className="flex-col text-xs hidden md:flex">
+          <div className="hidden flex-col text-xs md:flex">
             <span className="font-medium">
               {session?.user.firstname} {session?.user.lastname}
             </span>

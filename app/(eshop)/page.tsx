@@ -20,10 +20,10 @@ const Page = async ({ searchParams }: Props) => {
   }
 
   return (
-    <div>
+    <main>
       <ProductList products={products} />
       <Paginationn totalPages={totalPages} />
-    </div>
+    </main>
   );
 };
 

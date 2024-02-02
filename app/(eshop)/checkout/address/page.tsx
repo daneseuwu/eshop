@@ -7,13 +7,12 @@ const Page = async () => {
   const countries = await getCountries();
   const session = await auth();
 
-  if (!session?.user) {
-    <span>sin session de usuario</span>;
-  }
-
   const userAddress = (await getAddress(session!.user!.id)) ?? undefined;
 
-  return <AddressForm countries={countries} userStoredAddress={userAddress} />;
-};
+  return (
+    <main>
+      <AddressForm countries={countries} userStoredAddress={userAddress} />;
+    </main>
+  )
 
-export default Page;
+  export default Page;
