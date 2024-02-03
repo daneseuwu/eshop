@@ -16,16 +16,16 @@ const Nav = async () => {
           </Link>
         </div>
         <div className="md:flex gap-6 hidden">
-          <Link href="/category/men">
+          <Link href="/gender/men">
             <Button variant="ghost">Man</Button>
           </Link>
-          <Link href="/category/women">
+          <Link href="/gender/women">
             <Button variant="ghost">Women</Button>
           </Link>
-          <Link href="/category/kid">
+          <Link href="/gender/kid">
             <Button variant="ghost">Kid</Button>
           </Link>
-          <Link href="/category/unisex">
+          <Link href="/gender/unisex">
             <Button variant="ghost">Unisex</Button>
           </Link>
         </div>

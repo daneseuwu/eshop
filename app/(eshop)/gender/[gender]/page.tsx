@@ -1,4 +1,5 @@
 import { productPagination } from "@/actions/products/pagination";
+import Paginationn from "@/components/pagination/pagination";
 import ProductList from "@/components/products/productList";
 import { Gender } from "@prisma/client";
 import { redirect } from "next/navigation";
@@ -13,10 +14,11 @@ interface Props {
 }
 
 const Page = async ({ params, searchParams }: Props) => {
+  
   const { gender } = params;
   const page = searchParams.page ? parseInt(searchParams.page) : 1;
 
-  const { products, currentPage, totalPages } = await productPagination({
+  const { products, totalPages } = await productPagination({
     page,
     gender: gender as Gender,
   });
@@ -28,6 +30,7 @@ const Page = async ({ params, searchParams }: Props) => {
   return (
     <main>
       <ProductList products={products} />
+      <Paginationn totalPages={totalPages} />
     </main>
   );
 };

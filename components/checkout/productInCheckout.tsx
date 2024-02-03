@@ -21,46 +21,48 @@ const ProductInCheckout = () => {
     return;
   }
   return (
-    <ScrollArea className="h-[595px]">
-      <div className="flex flex-col gap-2">
-        {productInCart.map((product) => (
-          <div className="relative rounded-2xl border" key={product.slug}>
-            <CardContent className="flex gap-2 py-2">
-              <ProductImage
-                src={product.image}
-                alt={product.title}
-                width={100}
-                height={100}
-                className="rounded-2xl object-cover"
-              />
-
-              <div className="flex flex-col gap-2">
-                <Label>{product.title}</Label>
-                <Label className="flex gap-2 text-xs">
-                  <span>Price :</span>
-                  <span>
-                    {currencyFormat(product.price * product.quantity)}
-                  </span>
-                </Label>
-
-                <Label className="flex gap-2 text-xs">
-                  <span>Size :</span>
-                  <span>{product.size}</span>
-                </Label>
-
-                <Label className="flex gap-2 text-xs">
-                  <span>Quantity :</span>
-                  <span>{product.quantity}</span>
-                </Label>
-              </div>
-            </CardContent>
-          </div>
-        ))}
-        <Button size="sm">
+    <div>
+      <ScrollArea className="h-[550px]">
+        <Button size="sm" className="mb-2 flex w-full items-center gap-2">
           <Link href="/cart">Edit cart</Link>
         </Button>
-      </div>
-    </ScrollArea>
+        <div className="flex flex-col gap-2">
+          {productInCart.map((product) => (
+            <div className="relative rounded-2xl border" key={product.slug}>
+              <CardContent className="flex gap-2 py-2">
+                <ProductImage
+                  src={product.image}
+                  alt={product.title}
+                  width={100}
+                  height={100}
+                  className="rounded-2xl object-cover"
+                />
+
+                <div className="flex flex-col gap-2">
+                  <Label>{product.title}</Label>
+                  <Label className="flex gap-2 text-xs">
+                    <span>Price :</span>
+                    <span>
+                      {currencyFormat(product.price * product.quantity)}
+                    </span>
+                  </Label>
+
+                  <Label className="flex gap-2 text-xs">
+                    <span>Size :</span>
+                    <span>{product.size}</span>
+                  </Label>
+
+                  <Label className="flex gap-2 text-xs">
+                    <span>Quantity :</span>
+                    <span>{product.quantity}</span>
+                  </Label>
+                </div>
+              </CardContent>
+            </div>
+          ))}
+        </div>
+      </ScrollArea>
+    </div>
   );
 };
 

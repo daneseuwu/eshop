@@ -57,7 +57,7 @@ const SummaryCheckout = () => {
 
   return (
     <main>
-      <div className="border rounded-2xl">
+      <div className="border rounded-2xl h-[550px]">
         <CardHeader className="text-xl font-medium">
           <Label>Delivery address</Label>
         </CardHeader>
@@ -78,6 +78,7 @@ const SummaryCheckout = () => {
         <CardHeader className="text-xl font-medium">
           <Label>Delivery summary</Label>
         </CardHeader>
+
         <CardContent>
           <div className="flex items-center justify-between">
             <Label className="text-sm">No. Products</Label>
