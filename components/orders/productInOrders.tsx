@@ -22,13 +22,13 @@ const ProductInOrders = () => {
   return (
     <ScrollArea className="h-[550px]">
       <div className="md:px-2 py-2">
-        <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-2 py-2 w-full  rounded-lg my-2">
+        <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-2 py-2 w-full  rounded-2xl my-2">
           <CiMoneyCheck1 size={30} className="text-green-600" />
           <Label className="text-green-600 text-xs ">Paid</Label>
         </div>
         <div className="flex flex-col gap-2">
           {productInCart.map((product) => (
-            <div className="border rounded-xl relative" key={product.slug}>
+            <div className="border rounded-2xl relative" key={product.slug}>
               <CardContent className="flex gap-2 py-2">
                 <Image
                   src={`/products/${product.image}`}
@@ -36,7 +36,7 @@ const ProductInOrders = () => {
                   width={100}
                   height={100}
                   priority
-                  className="object-cover rounded-lg"
+                  className="object-cover rounded-2xl"
                 />
 
                 <div className="flex flex-col gap-2">

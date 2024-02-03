@@ -25,7 +25,7 @@ const UsersTable = ({ users }: Props) => {
           <input
             placeholder="Search"
             type="text"
-            className="w-full text-gray-500 placeholder:text-gray-500  text-sm border  focus:outline-none rounded-lg py-2.5 pl-8"
+            className="w-full text-gray-500 placeholder:text-gray-500  text-sm border  focus:outline-none rounded-2xl py-2.5 pl-8"
           />
         </div>
       </div>
@@ -52,7 +52,7 @@ const UsersTable = ({ users }: Props) => {
                 <select
                   value={user.rol}
                   onChange={(e) => changeUserRol(user.id, e.target.value)}
-                  className="block w-full  focus:outline-none rounded-md py-2  text-sm"
+                  className="block w-full  focus:outline-none rounded-2xl py-2  text-sm"
                 >
                   <option value="admin">Admin</option>
                   <option value="user">User</option>

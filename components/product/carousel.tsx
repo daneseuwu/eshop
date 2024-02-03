@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Carousel,
   CarouselContent,
@@ -28,25 +27,25 @@ const CarouselImage = ({ images, title }: Props) => {
           <ProductImage
             src={images[0]}
             alt={title}
-            width={1000}
-            height={1000}
-            className="rounded-xl object-cover"
+            width={600}
+            height={600}
+            className="rounded-2xl object-cover w-[500px]"
           />
         </CarouselItem>
         <CarouselItem>
           <ProductImage
             src={images[1]}
             alt={title}
-            width={1000}
-            height={1000}
-            className="rounded-xl object-cover"
+            width={600}
+            height={600}
+            className="rounded-2xl object-cover w-[500px]"
           />
         </CarouselItem>
       </CarouselContent>
-      <CarouselPrevious className="absolute left-2" />
-      <CarouselNext className="absolute right-2" />
+      {/* <CarouselPrevious  />
+      <CarouselNext  /> */}
     </Carousel>
-  );
-};
+  )
+}
 
 export default CarouselImage;

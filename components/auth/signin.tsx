@@ -52,7 +52,7 @@ const Signin = () => {
   };
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="w-96 border rounded-xl">
+      <div className="w-96 border rounded-2xl">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl">Signin</CardTitle>
         </CardHeader>

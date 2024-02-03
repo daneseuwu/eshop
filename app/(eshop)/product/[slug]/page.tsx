@@ -40,9 +40,9 @@ const Page = async ({ params }: Props) => {
   }
   return (
     <main>
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2  ">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:px-16">
         <CarouselImage images={product.images} title={product.title} />
-        <div className="rounded-xl border">
+        <div className="rounded-2xl border">
           <CardContent>
             <Label className="pt-2 text-2xl font-bold uppercase">
               {product?.title}

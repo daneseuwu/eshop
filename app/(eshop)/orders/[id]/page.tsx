@@ -30,8 +30,8 @@ const Page = async ({ params }: Props) => {
   return (
     <main>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:px-16">
-        <ScrollArea className="h-[550px]">
-          <div className="py-2 md:px-2">
+        <ScrollArea className="md:h-[550px]">
+          <div className="md:px-2">
             {!order?.isPaid ? (
               <Button
                 variant="destructive"
@@ -54,7 +54,7 @@ const Page = async ({ params }: Props) => {
             <div className="flex flex-col gap-2">
               {order?.OrderItem.map((product) => (
                 <div
-                  className="relative rounded-xl border"
+                  className="relative rounded-2xl border"
                   key={product.product.slug}
                 >
                   <CardContent className="flex gap-2 py-2">
@@ -63,7 +63,7 @@ const Page = async ({ params }: Props) => {
                       alt={product.product.title}
                       width={100}
                       height={100}
-                      className="rounded-lg object-cover"
+                      className="rounded-2xl object-cover"
                     />
 
                     <div className="flex flex-col gap-2">
@@ -89,7 +89,7 @@ const Page = async ({ params }: Props) => {
           </div>
         </ScrollArea>
 
-        <div className="rounded-xl border">
+        <div className="rounded-2xl border">
           <p className="flex items-center space-y-1.5 p-4">
             <CiDeliveryTruck size={30} />
             <Label>Delivery address</Label>

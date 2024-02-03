@@ -22,25 +22,20 @@ const ProductInCheckout = () => {
   }
   return (
     <ScrollArea className="h-[595px]">
-      <Button className="absolute right-4 top-0 z-50">
-        <Link href="/cart">Edit cart</Link>
-      </Button>
       <div className="flex flex-col gap-2">
         {productInCart.map((product) => (
-          <div className="relative rounded-xl border" key={product.slug}>
+          <div className="relative rounded-2xl border" key={product.slug}>
             <CardContent className="flex gap-2 py-2">
               <ProductImage
                 src={product.image}
                 alt={product.title}
                 width={100}
                 height={100}
-                className="rounded-lg object-cover"
+                className="rounded-2xl object-cover"
               />
 
               <div className="flex flex-col gap-2">
-                <p className="overflow-scroll overflow-x-auto text-xs font-medium  sm:text-xs">
-                  {product.title}
-                </p>
+                <Label>{product.title}</Label>
                 <Label className="flex gap-2 text-xs">
                   <span>Price :</span>
                   <span>
@@ -61,6 +56,9 @@ const ProductInCheckout = () => {
             </CardContent>
           </div>
         ))}
+        <Button size="sm">
+          <Link href="/cart">Edit cart</Link>
+        </Button>
       </div>
     </ScrollArea>
   );

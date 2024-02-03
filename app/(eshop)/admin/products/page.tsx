@@ -26,7 +26,7 @@ const Page = async ({ searchParams }: Props) => {
   });
 
   return (
-    <div className=" bg-white rounded-lg border">
+    <div className=" bg-white rounded-2xl border">
       <div className="flex justify-between items-center p-2">
         <div className="relative  flex w-44 md:w-96">
           <span className="absolute left-1 top-3">
@@ -35,7 +35,7 @@ const Page = async ({ searchParams }: Props) => {
           <input
             placeholder="Search"
             type="text"
-            className="w-full text-gray-500 placeholder:text-gray-500  text-sm border  focus:outline-none rounded-lg py-2.5 pl-8"
+            className="w-full text-gray-500 placeholder:text-gray-500  text-sm border  focus:outline-none rounded-2xl py-2.5 pl-8"
           />
         </div>
         <Button className="flex gap-2" size="sm">

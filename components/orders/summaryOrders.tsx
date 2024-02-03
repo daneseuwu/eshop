@@ -105,7 +105,7 @@ const SummaryOrders = () => {
         </CardContent>
 
         <CardFooter className="flex justify-between ">
-          <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-2 py-2 w-full rounded-lg my-2">
+          <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-2 py-2 w-full rounded-2xl my-2">
             <CiMoneyCheck1 size={30} className="text-green-600" />
             <Label className="text-green-600 text-xs ">Paid</Label>
           </div>

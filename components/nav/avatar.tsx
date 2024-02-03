@@ -20,7 +20,7 @@ const Avatars = async () => {
         className="cursor-pointer bg-clip-border"
       >
         <Avatar>
-          <AvatarImage src={session?.user?.image} alt="avatar" />
+          <AvatarImage src={session?.user?.image} alt="avatar" className="object-cover" />
           <AvatarFallback>
             {session?.user.firstname[0]}
             {session?.user.lastname[0]}

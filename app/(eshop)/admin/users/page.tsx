@@ -10,7 +10,7 @@ const Page = async () => {
   }
 
   return (
-    <div className=" bg-white rounded-lg border">
+    <div className=" bg-white rounded-2xl border">
       <UsersTable users={users} />
     </div>
   );

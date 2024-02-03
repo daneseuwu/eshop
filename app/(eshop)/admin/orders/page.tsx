@@ -21,7 +21,7 @@ const Page = async () => {
   }
 
   return (
-    <div className=" bg-white rounded-lg border">
+    <div className=" bg-white rounded-2xl border">
       <div className="flex items-center p-2">
         <div className="relative  flex w-44 md:w-96">
           <span className="absolute left-1 top-3">
@@ -30,7 +30,7 @@ const Page = async () => {
           <input
             placeholder="Search"
             type="text"
-            className="w-full text-gray-500 placeholder:text-gray-500  text-sm border  focus:outline-none rounded-lg py-2.5 pl-8"
+            className="w-full text-gray-500 placeholder:text-gray-500  text-sm border  focus:outline-none rounded-2xl py-2.5 pl-8"
           />
         </div>
       </div>
@@ -57,12 +57,12 @@ const Page = async () => {
               <TableCell>{order.OrderAddress?.lastname}</TableCell>
               <TableCell>
                 {order.isPaid ? (
-                  <span className="flex items-center gap-1 borde-green-200 rounded-lg text-green-700 text-xs">
+                  <span className="flex items-center gap-1 borde-green-200 rounded-2xl text-green-700 text-xs">
                     <CiBadgeDollar size={20} />
                     Paid
                   </span>
                 ) : (
-                  <span className="flex items-center gap-1 borde-red-200 rounded-lg text-red-700 text-xs">
+                  <span className="flex items-center gap-1 borde-red-200 rounded-2xl text-red-700 text-xs">
                     <CiBadgeDollar size={20} />
                     No Paid
                   </span>

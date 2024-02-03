@@ -17,8 +17,8 @@ const Quantity = ({ quantity, onQuantityChanged }: Props) => {
   };
 
   return (
-    <div className="flex flex-col gap-2 py-4">
-      <Label>Quantity</Label>
+    <div className="flex flex-col gap-2">
+      <Label className="text-xs">Quantity</Label>
       <div className="flex gap-2">
         <Button
           variant="secondary"

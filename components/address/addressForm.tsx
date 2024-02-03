@@ -74,7 +74,7 @@ const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="rounded-xl border">
+      <div className="rounded-2xl border">
         <CardContent className="py-5">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-3 grid grid-cols-1 gap-2 md:grid-cols-2">
@@ -151,7 +151,7 @@ const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
                 <Label>Country</Label>
                 <select
                   {...register("country", { required: true })}
-                  className="block w-full rounded-md border  border-gray-200 py-2 text-sm shadow-sm focus:outline-none"
+                  className="block w-full rounded-2xl border  border-gray-200 py-2 text-sm shadow-sm focus:outline-none"
                 >
                   <option value="">Select</option>
                   {countries.map((country) => (

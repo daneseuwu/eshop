@@ -14,5 +14,5 @@ const Page = async () => {
       <AddressForm countries={countries} userStoredAddress={userAddress} />;
     </main>
   )
-
+}
   export default Page;

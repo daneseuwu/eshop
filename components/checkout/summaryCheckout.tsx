@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import {  CardContent, CardFooter, CardHeader } from "../ui/card";
+import { CardContent, CardFooter, CardHeader } from "../ui/card";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { useCartStore } from "@/store/cart/product";
@@ -57,9 +57,9 @@ const SummaryCheckout = () => {
 
   return (
     <main>
-      <div className="border rounded-xl">
+      <div className="border rounded-2xl">
         <CardHeader className="text-xl font-medium">
-          Delivery address
+          <Label>Delivery address</Label>
         </CardHeader>
 
         <CardContent className="flex flex-col gap-2">
@@ -76,27 +76,27 @@ const SummaryCheckout = () => {
         </CardContent>
 
         <CardHeader className="text-xl font-medium">
-          Purchase details
+          <Label>Delivery summary</Label>
         </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-between">
+            <Label className="text-sm">No. Products</Label>
+            <Label className="text-sm">{itemsInCart} products</Label>
+          </div>
+          <div className="flex items-center justify-between">
+            <Label className="text-sm">Subtotal</Label>
+            <Label className="text-sm">{currencyFormat(subtotal)}</Label>
+          </div>
 
-        <CardContent className="flex justify-between">
-          <Label>No. Products</Label>
-          <Label>{itemsInCart} products</Label>
-        </CardContent>
+          <div className="flex items-center justify-between">
+            <Label className="text-sm">Taxes 5%</Label>
+            <Label className="text-sm">{currencyFormat(taxes)}</Label>
+          </div>
 
-        <CardContent className="flex justify-between">
-          <Label>Subtotal</Label>
-          <Label>{currencyFormat(subtotal)}</Label>
-        </CardContent>
-
-        <CardContent className="flex justify-between">
-          <Label>Taxes 5%</Label>
-          <Label>{currencyFormat(taxes)}</Label>
-        </CardContent>
-
-        <CardContent className="flex justify-between">
-          <Label>Total</Label>
-          <Label>{currencyFormat(total)}</Label>
+          <div className="flex items-center justify-between">
+            <Label className="text-sm">Total</Label>
+            <Label className="text-sm">{currencyFormat(total)}</Label>
+          </div>
         </CardContent>
 
         <CardFooter>
@@ -108,7 +108,7 @@ const SummaryCheckout = () => {
 
         <CardFooter className="flex justify-between ">
           <Button
-            className={clsx("w-72", {
+            className={clsx("w-full", {
               "bg-gray-950": !disableOrder,
               " bg-gray-400  cursor-not-allowed": disableOrder,
             })}
