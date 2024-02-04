@@ -45,7 +45,7 @@ const UsersTable = ({ users }: Props) => {
           {users.map((user) => (
             <TableRow key={user.id}>
               <TableCell>{user.id}</TableCell>
-              <TableCell>{user.firstname}</TableCell>
+              <TableCell>{user.name}</TableCell>
               <TableCell>{user.lastname}</TableCell>
               <TableCell>{user.email}</TableCell>
               <TableCell>

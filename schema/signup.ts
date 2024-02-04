@@ -1,7 +1,7 @@
 import z from "zod";
 
 const signupSchema = z.object({
-  firstname: z.string().min(3, {
+  name: z.string().min(3, {
     message: "First name must be at least 3 characters",
   }),
   lastname: z.string().min(3, {

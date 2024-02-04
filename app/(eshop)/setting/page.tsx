@@ -6,7 +6,7 @@ const Page = async () => {
   const session = await auth();
   
   const user = {
-    firstname: session?.user.firstname,
+    name: session?.user.name,
     lastname: session?.user.lastname,
     email: session?.user.email,
     image: session?.user.image,

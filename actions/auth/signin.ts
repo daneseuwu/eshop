@@ -22,7 +22,7 @@ export const signin = async (values: z.infer<typeof signinSchema>) => {
   if (!existuser || !existuser.email) {
     return {
       ok: false,
-      error: "Email does not exist",
+      error: "email not found",
     };
   }
 
@@ -37,7 +37,7 @@ export const signin = async (values: z.infer<typeof signinSchema>) => {
       switch (error.type) {
         case "CredentialsSignin":
           return {
-            error: "Invalid password",
+            error: "invalid password",
           };
 
         default:

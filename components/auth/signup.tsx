@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 const signupSchema = z.object({
-  firstname: z.string().min(3, {
+  name: z.string().min(3, {
     message: "First name must be at least 3 characters",
   }),
   lastname: z.string().min(3, {
@@ -43,7 +43,7 @@ export const Signup = () => {
     formState: { errors },
   } = useForm<z.infer<typeof signupSchema>>({
     defaultValues: {
-      firstname: "",
+      name: "",
       lastname: "",
       email: "",
       password: "",
@@ -81,16 +81,16 @@ export const Signup = () => {
                   disabled={isPending}
                   type="text"
                   placeholder="Jon"
-                  {...register("firstname", {
+                  {...register("name", {
                     required: {
                       value: true,
                       message: "Firstname is required",
                     },
                   })}
                 />
-                {errors.firstname && (
+                {errors.name && (
                   <span className="text-red-400 text-xs">
-                    {errors.firstname?.message}
+                    {errors.name?.message}
                   </span>
                 )}
               </div>

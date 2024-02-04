@@ -19,9 +19,9 @@ const ProductInCart = () => {
     (state) => state.updateProductQuantity
   );
 
-  useEffect(() => {
-    if (totalItemCart === 1 ? "/cart" : redirect("/")) return;
-  }, [totalItemCart]);
+  // useEffect(() => {
+  //   if (totalItemCart === 1 ? "/cart" : redirect("/")) return;
+  // }, [totalItemCart]);
 
   return (
     <ScrollArea className="h-[550px]">

@@ -23,10 +23,9 @@ model Product {
   slug         String         @unique
   tags         String[]       @default([])
   gender       Gender
-  
+  categoryId   String
   OrderItem    OrderItem[]
   category     Category       @relation(fields: [categoryId], references: [id])
-  categoryId   String
   ProductImage ProductImage[]
 
   @@index([gender])
@@ -37,19 +36,6 @@ model ProductImage {
   url       String
   productId String
   product   Product @relation(fields: [productId], references: [id])
-}
-
-model User {
-  id            String       @id @default(cuid())
-  firstname     String
-  lastname      String
-  email         String       @unique
-  password      String
-  emailVerified DateTime?
-  rol           Rol          @default(user)
-  image         String?
-  Order         Order[]
-  address       UserAddress?
 }
 
 model Country {
@@ -116,6 +102,47 @@ model OrderAddress {
   orderId      String  @unique
   country      Country @relation(fields: [countryId], references: [id])
   order        Order   @relation(fields: [orderId], references: [id])
+}
+
+model User {
+  id            String       @id @default(cuid())
+  name          String
+  lastname      String?
+  email         String       @unique
+  password      String?
+  emailVerified DateTime?
+  rol           Rol          @default(user)
+  image         String?
+  Account       Account[]
+  Order         Order[]
+  address       UserAddress?
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model verificationToken {
+  id     String   @id @default(uuid())
+  email  String
+  token  String   @unique
+  expire DateTime
+
+  @@unique([email, token])
 }
 
 enum Rol {

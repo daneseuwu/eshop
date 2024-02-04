@@ -1,19 +1,18 @@
-import { redirect } from "next/navigation";
+import { getPaginateUser } from '@/actions/users/get-paginate-users';
+import { columns } from '@/components/tables/users/columns'
+import DataTable from '@/components/tables/users/datatable'
+import { redirect } from 'next/navigation';
 
-import UsersTable from "./table/users";
-import { getPaginateUser } from "@/actions/users/get-paginate-users";
 const Page = async () => {
-  const { ok, users } = await getPaginateUser();
+    const { ok, users } = await getPaginateUser();
 
   if (!ok) {
     redirect("/auth/signin");
   }
-
   return (
-    <div className=" bg-white rounded-2xl border">
-      <UsersTable users={users} />
-    </div>
-  );
-};
+    <DataTable columns={columns} data={users} />
+  )
+}
 
-export default Page;
+export default Page
+

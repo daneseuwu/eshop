@@ -20,9 +20,13 @@ const Avatars = async () => {
         className="cursor-pointer bg-clip-border"
       >
         <Avatar>
-          <AvatarImage src={session?.user?.image} alt="avatar" className="object-cover" />
+          <AvatarImage
+            src={session?.user?.image}
+            alt="avatar"
+            className="object-cover"
+          />
           <AvatarFallback>
-            {session?.user.firstname[0]}
+            {session?.user.name[0]}
             {session?.user.lastname[0]}
           </AvatarFallback>
         </Avatar>
@@ -32,7 +36,7 @@ const Avatars = async () => {
         <DropdownMenuItem>
           <div className="hidden flex-col text-xs md:flex">
             <span className="font-medium">
-              {session?.user.firstname} {session?.user.lastname}
+              {session?.user.name} {session?.user.lastname}
             </span>
             <span className="text-muted-foreground">
               {session?.user?.email}

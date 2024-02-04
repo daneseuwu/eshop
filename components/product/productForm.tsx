@@ -167,7 +167,7 @@ const ProductForm = ({ product, categories }: Props) => {
               <div className="mb-3">
                 <Label>Gender</Label>
                 <select
-                  className="block w-full rounded-2xl border  border-gray-200 py-2 text-sm shadow-sm focus:outline-none"
+                  className="block w-full rounded-md border  border-gray-200 py-2 text-sm shadow-sm focus:outline-none"
                   {...register("gender", {
                     required: true,
                   })}
@@ -184,7 +184,7 @@ const ProductForm = ({ product, categories }: Props) => {
             <div className="mb-3">
               <Label>Category</Label>
               <select
-                className="block w-[330px] rounded-2xl border  border-gray-200 py-2 text-sm shadow-sm focus:outline-none"
+                className="block w-[330px] rounded-md border  border-gray-200 py-2 text-sm shadow-sm focus:outline-none"
                 {...register("categoryId", {
                   required: true,
                 })}
@@ -242,9 +242,9 @@ const ProductForm = ({ product, categories }: Props) => {
                       required: true,
                     })}
                     className={clsx(
-                      "h-8 rounded-2xl border px-3 text-center text-xs shadow-sm  transition-all hover:bg-gray-100",
+                      "h-8 rounded-md border px-3 text-center text-xs shadow-sm  transition-all hover:bg-gray-100",
                       {
-                        "h-8 rounded-2xl bg-gray-900 px-3 text-center text-xs text-gray-50 shadow transition-all hover:bg-gray-900/90":
+                        "h-8 rounded-md bg-gray-900 px-3 text-center text-xs text-gray-50 shadow transition-all hover:bg-gray-900/90":
                           getValues("sizes").includes(size),
                       }
                     )}

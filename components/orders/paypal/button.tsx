@@ -23,8 +23,8 @@ const PaypalButton = ({ orderId, amount }: Props) => {
   if (isPending) {
     return (
       <CardContent className="animate-pulse ">
-        <div className="h-[30px] bg-gray-200 rounded-2xl" />
-        <div className="h-[30px] bg-gray-200 rounded-2xl mt-2" />
+        <div className="h-[30px] bg-gray-200 rounded-md" />
+        <div className="h-[30px] bg-gray-200 rounded-md mt-2" />
       </CardContent>
     );
   }

@@ -25,7 +25,7 @@ type ValidTypes =
   | "jackets";
 
 interface SeedUser {
-  firstname: string;
+  name: string;
   lastname: string;
   email: string;
   password: string;
@@ -41,14 +41,14 @@ interface SeedData {
 export const initialData: SeedData = {
   users: [
     {
-      firstname: "Juan",
+      name: "Juan",
       lastname: "Carlos",
       email: "jcarlos@amazon.com",
       password: bcryptjs.hashSync("12345678", 10),
       rol: "admin",
     },
     {
-      firstname: "Ana",
+      name: "Ana",
       lastname: "Melissa",
       email: "amelissa@amazon.com",
       password: bcryptjs.hashSync("12345678", 10),

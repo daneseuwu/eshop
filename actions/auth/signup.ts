@@ -15,7 +15,7 @@ export const signup = async (values: z.infer<typeof signupSchema>) => {
     };
   }
 
-  const { firstname, lastname, email, password } = validatefield.data;
+  const { name, lastname, email, password } = validatefield.data;
   const passwordhash = bcryptjs.hashSync(password, 10);
 
   const existuser = await userbyEmail(email);
@@ -28,7 +28,7 @@ export const signup = async (values: z.infer<typeof signupSchema>) => {
   }
   await prisma.user.create({
     data: {
-      firstname,
+      name,
       lastname,
       email: email.toLowerCase(),
       password: passwordhash,

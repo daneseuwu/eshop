@@ -5,11 +5,10 @@ import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
 import z from "zod";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {  useState } from "react";
 
 const userSchema = z.object({
   image: z.string().min(3, {}),
-  firstname: z.string().min(3, {
+  name: z.string().min(3, {
     message: "First name must be at least 3 characters",
   }),
   lastname: z.string().min(3, {
@@ -25,7 +24,7 @@ const userSchema = z.object({
 
 interface Props {
   user: {
-    firstname?: string;
+    name?: string;
     lastname?: string;
     email?: string;
     image?: string;
@@ -36,7 +35,7 @@ const Setting = ({ user }: Props) => {
 
   const { register } = useForm<z.infer<typeof userSchema>>({
     defaultValues: {
-      firstname: user.firstname,
+      name: user.name,
       lastname: user.lastname,
       email: user.email,
       image: user.image,
@@ -53,9 +52,9 @@ const Setting = ({ user }: Props) => {
                 <Avatar>
                   <AvatarImage src={user.image} alt="avatar" className="object-cover"/>
                   <AvatarFallback>
-                    {user?.firstname && user?.lastname && (
+                    {user?.name && user?.lastname && (
                       <>
-                        {user.firstname[0]}
+                        {user.name[0]}
                         {user.lastname[0]}
                       </>
                     )}
@@ -64,7 +63,7 @@ const Setting = ({ user }: Props) => {
 
                 <div className="flex flex-col">
                   <Label className="text-sm">
-                    {user.firstname} {user.lastname}
+                    {user.name} {user.lastname}
                   </Label>
                   <Label className="text-xs">{user.email}</Label>
                 </div>
@@ -75,7 +74,7 @@ const Setting = ({ user }: Props) => {
                   <Label>Firstname</Label>
                   <Input
                     type="text"
-                    {...register("firstname", {
+                    {...register("name", {
                       required: {
                         value: true,
                         message: "Email is required",

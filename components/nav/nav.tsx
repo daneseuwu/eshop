@@ -11,8 +11,8 @@ const Nav = async () => {
     <main>
       <div className="flex justify-between items-center pt-1 pb-2">
         <div>
-          <Link href="/" className="font-bold text-xl ">
-            eshop.com
+          <Link href="/" className="font-semibold text-2xl ">
+            Eshop
           </Link>
         </div>
         <div className="md:flex gap-6 hidden">

@@ -13,7 +13,7 @@ export const getPaginateUser = async () => {
 
   const users = await prisma.user.findMany({
     orderBy: {
-      firstname: "desc",
+      lastname: "desc",
     },
   });
 

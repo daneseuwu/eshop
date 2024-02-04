@@ -1,9 +1,7 @@
-import React from "react";
 import { CardHeader } from "../ui/card";
 import { Label } from "../ui/label";
 
 const SummaryOrders = async () => {
-  const address = order!.OrderAddress;
   return (
     <main>
       <div className="border rounded-2xl h-[550px]">

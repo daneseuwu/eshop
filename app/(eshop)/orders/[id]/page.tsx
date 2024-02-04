@@ -30,7 +30,7 @@ const Page = async ({ params }: Props) => {
     <main>
       <Title title={`Order ${id.substring(24, 50)}`} />
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:px-16">
-        <ScrollArea className="md:h-[550px]">
+        <ScrollArea className="md:h-[555px]">
           {!order?.isPaid ? (
             <Button
               variant="destructive"
@@ -92,7 +92,7 @@ const Page = async ({ params }: Props) => {
             ))}
           </div>
         </ScrollArea>
-        <div className="border rounded-2xl h-[550px]">
+        <div className="border rounded-2xl h-[555px]">
           <CardHeader className="text-xl font-medium">
             <Label>Delivery address</Label>
           </CardHeader>
@@ -147,20 +147,18 @@ const Page = async ({ params }: Props) => {
               términos, condiciones y políticas de privacidad.
             </Label>
           </CardFooter>
-          <CardFooter>
             {!order?.isPaid ? (
               <PaypalButton amount={order!.total} orderId={order!.id} />
             ) : (
               <Button
                 variant="default"
                 size="sm"
-                className="mb-2 flex w-full items-center gap-2"
+                className="flex w-full items-center gap-2"
               >
                 <CiBadgeDollar size={20} />
                 Paid
               </Button>
             )}
-          </CardFooter>
         </div>
       </div>
     </main>
