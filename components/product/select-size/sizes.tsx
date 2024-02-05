@@ -11,13 +11,14 @@ interface Props {
 const SizeSelector = ({ availableSize, selectedSize, changeSize }: Props) => {
   return (
     <div className="flex flex-col">
-      <Label>Size</Label>
+      <Label className="text-xs">Size</Label>
       <div className="flex gap-1 pt-1">
         {availableSize.map((size) => (
           <Button
             variant="outline"
             onClick={() => changeSize(size)}
             key={size}
+            size="sm"
             className={clsx(
               "h-8 rounded-md px-3 text-xs hover:bg-gray-100 border shadow-sm  transition-all text-center",
 

@@ -11,7 +11,7 @@ const Page = async () => {
 
   return (
     <main>
-      <AddressForm countries={countries} userStoredAddress={userAddress} />;
+      <AddressForm countries={countries} userStoredAddress={userAddress} />
     </main>
   )
 }

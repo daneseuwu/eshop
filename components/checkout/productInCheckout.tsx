@@ -22,7 +22,7 @@ const ProductInCheckout = () => {
   }
   return (
     <div>
-      <ScrollArea className="h-[550px]">
+      <ScrollArea className="md:h-[550px]">
         <Button size="sm" className="mb-2 flex w-full items-center gap-2">
           <Link href="/cart">Edit cart</Link>
         </Button>
@@ -40,21 +40,21 @@ const ProductInCheckout = () => {
 
                 <div className="flex flex-col gap-2">
                   <Label>{product.title}</Label>
-                  <Label className="flex gap-2 text-xs">
-                    <span>Price :</span>
-                    <span>
+                  <div className="flex gap-2 ">
+                    <Label className="text-xs">Price :</Label>
+                    <Label className="text-xs">
                       {currencyFormat(product.price * product.quantity)}
-                    </span>
-                  </Label>
+                    </Label>
+                  </div>
 
-                  <Label className="flex gap-2 text-xs">
-                    <span>Size :</span>
-                    <span>{product.size}</span>
-                  </Label>
+                  <div className="flex gap-2">
+                    <Label className=" text-xs">Size :</Label>
+                    <Label className=" text-xs">{product.size}</Label>
+                  </div>
 
-                  <Label className="flex gap-2 text-xs">
-                    <span>Quantity :</span>
-                    <span>{product.quantity}</span>
+                  <Label className="flex gap-2">
+                    <Label className=" text-xs">Quantity :</Label>
+                    <Label className=" text-xs">{product.quantity}</Label>
                   </Label>
                 </div>
               </CardContent>

@@ -1,8 +1,14 @@
 "use client";
 import Quantity from "@/components/product/quantity-selector/quantity";
 import SizeSelector from "@/components/product/select-size/sizes";
+import Stock from "@/components/product/stock/stock";
 import { Button } from "@/components/ui/button";
-import { CardDescription, CardFooter } from "@/components/ui/card";
+import {
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { CartProduct, Product, Size } from "@/interfaces/product.interface";
 import { useCartStore } from "@/store/cart/product";
@@ -46,21 +52,52 @@ const Addtocart = ({ product }: Props) => {
 
   return (
     <main>
-      <SizeSelector
-        availableSize={product.sizes}
-        selectedSize={size}
-        changeSize={setSize}
-      />
+      <CardHeader className="font-semibold text-2xl">
+        {product?.title}
+      </CardHeader>
 
-      <Quantity quantity={quantity} onQuantityChanged={setQuantity} />
+      <CardContent>
+        <Stock slug={product.slug} />
 
-      <div className=" flex flex-col py-4 text-justify">
-        <Label>Description</Label>
-        <CardDescription>{product?.description}</CardDescription>
-      </div>
+        <div className="flex flex-col gap-2 py-2">
+          <Label className="text-xs">Price</Label>
+          <Label className="text-xs">$ {product?.price}</Label>
+        </div>
+        <div className="py-2">
+          <SizeSelector
+            availableSize={product.sizes}
+            selectedSize={size}
+            changeSize={setSize}
+          />
+        </div>
 
-      <CardFooter>
-        <Button onClick={() => addTocart()}>Add to cart</Button>
+        <div className="py-2">
+          <Quantity quantity={quantity} onQuantityChanged={setQuantity} />
+        </div>
+
+        <div className="py-2">
+          <Label className="text-xs">Description</Label>
+          <CardDescription className="text-xs">
+            {product?.description}
+          </CardDescription>
+        </div>
+      </CardContent>
+
+      <CardFooter className="w-full flex flex-col gap-2">
+        <Button
+          onClick={() => addTocart()}
+          variant="default"
+          className="w-full"
+        >
+          Buy now
+        </Button>
+        <Button
+          onClick={() => addTocart()}
+          variant="outline"
+          className="w-full"
+        >
+          Add to cart
+        </Button>
       </CardFooter>
     </main>
   );

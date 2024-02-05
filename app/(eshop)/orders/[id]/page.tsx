@@ -30,7 +30,7 @@ const Page = async ({ params }: Props) => {
     <main>
       <Title title={`Order ${id.substring(24, 50)}`} />
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:px-16">
-        <ScrollArea className="md:h-[555px]">
+        <ScrollArea className="md:h-[550px]">
           {!order?.isPaid ? (
             <Button
               variant="destructive"
@@ -50,6 +50,7 @@ const Page = async ({ params }: Props) => {
               Paid
             </Button>
           )}
+
           <div className="flex flex-col gap-2">
             {order?.OrderItem.map((product) => (
               <div
@@ -67,32 +68,31 @@ const Page = async ({ params }: Props) => {
 
                   <div className="flex flex-col gap-2">
                     <Label>{product.product.title}</Label>
-
-                    <Label className="flex gap-2 text-xs">
-                      <span>Price :</span>
-                      <span>
+                    <div className="flex gap-2">
+                      <Label className="text-xs">Price :</Label>
+                      <Label className="text-xs">
                         ${product.price} x {product.quantity}
-                      </span>
-                    </Label>
+                      </Label>
+                    </div>
 
-                    <Label className="flex gap-2 text-xs">
-                      <span>Size :</span>
-                      <span>{product.size}</span>
-                    </Label>
+                    <div className="flex gap-2">
+                      <Label className="text-xs">Size :</Label>
+                      <Label className="text-xs">{product.size}</Label>
+                    </div>
 
-                    <Label className="flex gap-2 text-xs">
-                      <span>Subtotal :</span>
-                      <span>
+                    <div className="flex gap-2">
+                      <Label className="text-xs">Subtotal :</Label>
+                      <Label className="text-xs">
                         {currencyFormat(product.price * product.quantity)}
-                      </span>
-                    </Label>
+                      </Label>
+                    </div>
                   </div>
                 </CardContent>
               </div>
             ))}
           </div>
         </ScrollArea>
-        <div className="border rounded-2xl h-[555px]">
+        <div className="border rounded-2xl md:h-[580px]">
           <CardHeader className="text-xl font-medium">
             <Label>Delivery address</Label>
           </CardHeader>
@@ -101,64 +101,65 @@ const Page = async ({ params }: Props) => {
             <Label>
               {address!.firstname} {address!.lastname}
             </Label>
-            <Label>{address!.address!}</Label>
-            <Label>{address!.countryId}</Label>
-            <Label>{address!.city}</Label>
-            <Label>{address!.state}</Label>
-            <Label>{address!.postalCode}</Label>
-            <Label>{address!.phone}</Label>
-            <Label>{address!.instructions}</Label>
+            <Label className="text-xs">{address!.address!}</Label>
+            <Label className="text-xs">{address!.countryId}</Label>
+            <Label className="text-xs">{address!.city}</Label>
+            <Label className="text-xs">{address!.state}</Label>
+            <Label className="text-xs">{address!.postalCode}</Label>
+            <Label className="text-xs">{address!.phone}</Label>
+            <Label className="text-xs">{address!.instructions}</Label>
           </CardContent>
 
           <CardHeader className="text-xl font-medium">
             <Label>Delivery summary</Label>
           </CardHeader>
 
-          <CardContent>
+          <CardContent className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
-              <Label className="text-sm">No. Products</Label>
-              <Label className="text-sm">
+              <Label className="text-xs">No. Products</Label>
+              <Label className="text-xs">
                 {order?.itemInOrder === 1
                   ? "1 products"
                   : `${order?.itemInOrder} products`}
               </Label>
             </div>
-
             <div className="flex items-center justify-between">
-              <Label className="text-sm">Subtotal</Label>
-              <Label className="text-sm">
+              <Label className="text-xs">Subtotal</Label>
+              <Label className="text-xs">
                 {currencyFormat(order!.subtotal)}
               </Label>
             </div>
 
             <div className="flex items-center justify-between">
-              <Label className="text-sm">Taxes 5%</Label>
-              <Label className="text-sm">{currencyFormat(order!.tax)}</Label>
+              <Label className="text-xs">Taxes 5%</Label>
+              <Label className="text-xs">{currencyFormat(order!.tax)}</Label>
             </div>
 
             <div className="flex items-center justify-between">
-              <Label className="text-sm">Total</Label>
-              <Label className="text-sm">{currencyFormat(order!.total)}</Label>
+              <Label className="text-xs">Total</Label>
+              <Label className="text-xs">{currencyFormat(order!.total)}</Label>
             </div>
           </CardContent>
+
           <CardFooter>
             <Label className="text-xs">
               Al hacer click en <strong>colocar Order</strong>, aceptas los
               términos, condiciones y políticas de privacidad.
             </Label>
           </CardFooter>
-            {!order?.isPaid ? (
-              <PaypalButton amount={order!.total} orderId={order!.id} />
-            ) : (
-              <Button
-                variant="default"
-                size="sm"
-                className="flex w-full items-center gap-2"
-              >
-                <CiBadgeDollar size={20} />
-                Paid
-              </Button>
-            )}
+
+          {!order?.isPaid ? (
+            <PaypalButton amount={order!.total} orderId={order!.id} />
+          ) : (
+            <Button
+              variant="default"
+              size="sm"
+              className="flex w-full items-center gap-2"
+            >
+              <CiBadgeDollar size={20} />
+              Paid
+            </Button>
+          )}
         </div>
       </div>
     </main>

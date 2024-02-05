@@ -73,7 +73,7 @@ const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center w-full">
       <div className="rounded-xl border">
         <CardContent className="py-5">
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -186,7 +186,7 @@ const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
             </div>
 
             <div className="text-center">
-              <Button type="submit" disabled={!isValid} className="w-72">
+              <Button type="submit" disabled={!isValid} className="w-full">
                 Next
               </Button>
             </div>

@@ -25,28 +25,29 @@ const SummaryCart = () => {
   }
 
   return (
-    <div className="border rounded-2xl h-60">
+    <main>
       <CardHeader className="text-xl font-medium">
         <Label>Delivery summary</Label>
       </CardHeader>
-      <CardContent>
+
+      <CardContent className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <Label className="text-sm">No. Products</Label>
-          <Label className="text-sm">{itemsInCart} products</Label>
+          <Label className="text-xs">No. Products</Label>
+          <Label className="text-xs">{itemsInCart} products</Label>
         </div>
         <div className="flex items-center justify-between">
-          <Label className="text-sm">Subtotal</Label>
-          <Label className="text-sm">{currencyFormat(subtotal)}</Label>
+          <Label className="text-xs">Subtotal</Label>
+          <Label className="text-xs">{currencyFormat(subtotal)}</Label>
         </div>
 
         <div className="flex items-center justify-between">
-          <Label className="text-sm">Taxes 5%</Label>
-          <Label className="text-sm">{currencyFormat(taxes)}</Label>
+          <Label className="text-xs">Taxes 5%</Label>
+          <Label className="text-xs">{currencyFormat(taxes)}</Label>
         </div>
 
         <div className="flex items-center justify-between">
-          <Label className="text-sm">Total</Label>
-          <Label className="text-sm">{currencyFormat(total)}</Label>
+          <Label className="text-xs">Total</Label>
+          <Label className="text-xs">{currencyFormat(total)}</Label>
         </div>
       </CardContent>
       <CardFooter>
@@ -54,7 +55,7 @@ const SummaryCart = () => {
           <Link href="/checkout/address/">Checkout</Link>
         </Button>
       </CardFooter>
-    </div>
+    </main>
   );
 };
 

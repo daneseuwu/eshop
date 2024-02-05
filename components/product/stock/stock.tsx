@@ -19,10 +19,10 @@ const Stock = ({ slug }: Props) => {
   }, [slug]);
 
   return (
-    <Label className="flex flex-col gap-2 py-4">
-      <span>Stock</span>
-      <span>{stock}</span>
-    </Label>
+    <div className="flex flex-col gap-2 py-4">
+      <Label className="text-xs">Stock</Label>
+      <Label className="text-xs">{stock}</Label>
+    </div>
   );
 };
 

@@ -1,5 +1,5 @@
 "use client";
-import { CardContent } from "@/components/ui/card";
+import { CardContent, CardFooter } from "@/components/ui/card";
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import {
   CreateOrderData,
@@ -22,10 +22,10 @@ const PaypalButton = ({ orderId, amount }: Props) => {
 
   if (isPending) {
     return (
-      <CardContent className="animate-pulse ">
+      <CardFooter className="animate-pulse ">
         <div className="h-[30px] bg-gray-200 rounded-md" />
         <div className="h-[30px] bg-gray-200 rounded-md mt-2" />
-      </CardContent>
+      </CardFooter>
     );
   }
 
@@ -64,13 +64,14 @@ const PaypalButton = ({ orderId, amount }: Props) => {
   };
 
   return (
-    <CardContent>
+    <CardFooter className="w-full">
       <PayPalButtons
+        className="w-full"
         style={{ layout: "vertical", height: 30 }}
         createOrder={createOrder}
         onApprove={onApprove}
       />
-    </CardContent>
+    </CardFooter>
   );
 };
 

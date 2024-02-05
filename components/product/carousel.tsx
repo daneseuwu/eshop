@@ -3,8 +3,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import ProductImage from "./image/productImage";
@@ -29,7 +27,7 @@ const CarouselImage = ({ images, title }: Props) => {
             alt={title}
             width={600}
             height={600}
-            className="rounded-2xl object-cover w-[500px]"
+            className="rounded-2xl object-cover w-[550px]"
           />
         </CarouselItem>
         <CarouselItem>
@@ -38,14 +36,12 @@ const CarouselImage = ({ images, title }: Props) => {
             alt={title}
             width={600}
             height={600}
-            className="rounded-2xl object-cover w-[500px]"
+            className="rounded-2xl object-cover w-[550px]"
           />
         </CarouselItem>
       </CarouselContent>
-      {/* <CarouselPrevious  />
-      <CarouselNext  /> */}
     </Carousel>
-  )
-}
+  );
+};
 
 export default CarouselImage;

@@ -9,10 +9,11 @@ import { useCartStore } from "@/store/cart/product";
 import { currencyFormat } from "@/utils/format";
 import ProductImage from "../product/image/productImage";
 import { redirect } from "next/navigation";
+import Title from "@/components/title/title";
+import Link from "next/link";
 
 const ProductInCart = () => {
   const productInCart = useCartStore((state) => state.cart);
-  const totalItemCart = useCartStore((state) => state.getTotalItem());
   const removeProductCart = useCartStore((state) => state.removeProduct);
 
   const updateProductQuantity = useCartStore(
@@ -24,10 +25,13 @@ const ProductInCart = () => {
   // }, [totalItemCart]);
 
   return (
-    <ScrollArea className="h-[550px]">
+    <ScrollArea className="md:h-[550px]">
       <div className="flex flex-col gap-2">
         {productInCart.map((product) => (
-          <div className="relative rounded-2xl border" key={product.slug}>
+          <div
+            className="relative rounded-2xl border"
+            key={`${product.slug}-${product.size}`}
+          >
             <Label className="absolute right-1 top-1 rounded-full bg-gray-100 p-0.5 text-gray-400">
               <MinusIcon
                 className="cursor-pointer"
@@ -44,27 +48,32 @@ const ProductInCart = () => {
               />
 
               <div className="flex flex-col gap-2">
-                <Label>{product.title}</Label>
-                <Label className="flex gap-2 text-xs">
-                  <span>Price :</span>
-                  <span>
+                <Link
+                  href={`product/${product.slug}`}
+                  className="hover:underline"
+                >
+                  <Label>{product.title}</Label>
+                </Link>
+                <div className="flex gap-2">
+                  <Label className="text-xs">Price :</Label>
+                  <Label className="text-xs">
                     {currencyFormat(product.price * product.quantity)}
-                  </span>
-                </Label>
+                  </Label>
+                </div>
 
-                <Label className="flex gap-2 text-xs">
-                  <span>Size :</span>
-                  <span>{product.size}</span>
-                </Label>
+                <div className="flex gap-2">
+                  <Label className="text-xs">Size :</Label>
+                  <Label className="text-xs">{product.size}</Label>
+                </div>
 
-                <Label className="flex gap-2 text-xs">
+                <div className="flex gap-2">
                   <Quantity
                     quantity={product.quantity}
                     onQuantityChanged={(quantity) =>
                       updateProductQuantity(product, quantity)
                     }
                   />
-                </Label>
+                </div>
               </div>
             </CardContent>
           </div>
