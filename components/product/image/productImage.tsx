@@ -7,6 +7,7 @@ interface Props {
   height: number;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
+  onClick?: () => void;
 }
 const ProductImage = ({ src, alt, className, width, height }: Props) => {
   const localSrc = src

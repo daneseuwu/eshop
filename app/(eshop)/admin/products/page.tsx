@@ -1,21 +1,20 @@
-import Datatable from '@/components/tables/products/datatable'
-import {columns}  from '@/components/tables/products/columns'
-import { productPagination } from '@/actions/products/pagination';
+import Datatable from "@/components/tables/products/datatable";
+import { columns } from "@/components/tables/products/columns";
+import { getProducts } from "@/actions/products/products";
+import { redirect } from "next/navigation";
+import { auth } from "@/auth";
 
-interface Props {
-  searchParams: {
-    page?: string;
-  };
-}
+const Page = async () => {
+  const session = await auth();
+  const { ok, products } = await getProducts();
+  console.log({products})
 
-const Page = async ({ searchParams }: Props) => {
-  const page = searchParams.page ? parseInt(searchParams.page) : 1;
-  const { products} = await productPagination({
-    page,
-  });
-  return (
-      <Datatable columns={columns} data={products} />
-    )
-}
+  if (!session) {
+    redirect("/auth/signin");
+  } else if (!ok) {
+    redirect("/auth/signin");
+  }
+  return <Datatable columns={columns} data={products} />;
+};
 
-export default Page
+export default Page;

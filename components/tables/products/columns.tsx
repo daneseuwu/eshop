@@ -11,8 +11,8 @@ import {
 import { ColumnDef } from "@tanstack/react-table";
 import { CaretSortIcon, DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Product } from "@/interfaces/product.interface";
 import Link from "next/link";
+import { Product } from "@prisma/client";
 
 export const columns: ColumnDef<Product>[] = [
   {
@@ -104,7 +104,9 @@ export const columns: ColumnDef<Product>[] = [
             <DropdownMenuItem>
               <Link href={`/product/${product.slug}`}>View product</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>View customer</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href={`/admin/product/${product.slug}`}>Edit product</Link>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

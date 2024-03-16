@@ -13,7 +13,6 @@ import { setUserAddress } from "@/actions/address/address";
 import { deleteAddress } from "@/actions/address/deleteAddress";
 import { Address } from "@/interfaces/address.interface";
 import { useRouter } from "next/navigation";
-import Title from "../title/title";
 
 interface AddressForm {
   firstname: string;
@@ -32,6 +31,12 @@ interface Props {
   userStoredAddress?: Partial<Address>;
 }
 const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
+  const router = useRouter();
+
+  const { data: session } = useSession({
+    required: true,
+  });
+
   const {
     handleSubmit,
     register,
@@ -44,14 +49,8 @@ const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
     },
   });
 
-  const { data: session } = useSession({
-    required: true,
-  });
-
   const setaddress = useAddressStore((state) => state.setAddress);
   const getaddress = useAddressStore((state) => state.address);
-
-  const router = useRouter();
 
   useEffect(() => {
     if (getaddress.firstname) {

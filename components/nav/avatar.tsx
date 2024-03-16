@@ -26,8 +26,8 @@ const Avatars = async () => {
             className="object-cover"
           />
           <AvatarFallback>
-            {session?.user.name[0]}
-            {session?.user.lastname[0]}
+           {session?.user.name[0]}
+            {/*  {session?.user.lastname[0]} */}
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>

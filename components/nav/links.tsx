@@ -44,12 +44,14 @@ export const Linksadmin = () => {
   return (
     <>
       {linkadmin.map((item) => (
-        <DropdownMenuItem
-          key={item.path}
-          className="text-muted-foreground flex cursor-pointer items-center gap-2 text-xs"
-        >
-          {item.icon}
-          <button type="button" onClick={() => router.push(`${item.path}`)}>
+        <DropdownMenuItem key={item.path}>
+          <button
+            type="button"
+            onClick={() => router.push(`${item.path}`)}
+            className="text-muted-foreground flex cursor-pointer items-center gap-2 text-xs"
+          >
+            {item.icon}
+
             {item.title}
           </button>
           {/* <Link href={item.path}>{item.title}</Link> */}
@@ -65,12 +67,13 @@ export const Linksuser = () => {
   return (
     <>
       {linkuser.map((item) => (
-        <DropdownMenuItem
-          key={item.path}
-          className="text-muted-foreground flex cursor-pointer items-center gap-2 text-xs"
-        >
-          {item.icon}
-          <button type="button" onClick={() => router.push(`${item.path}`)}>
+        <DropdownMenuItem key={item.path}>
+          <button
+            type="button"
+            onClick={() => router.push(`${item.path}`)}
+            className="text-muted-foreground flex cursor-pointer items-center gap-2 text-xs"
+          >
+            {item.icon}
             {item.title}
           </button>
           {/* <Link href={item.path}>{item.title}</Link> */}

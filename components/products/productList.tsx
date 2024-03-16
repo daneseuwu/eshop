@@ -1,6 +1,5 @@
 import { Product } from "@/interfaces/product.interface";
 import ProductCard from "./productCard";
-import Title from "../title/title";
 
 interface Props {
   products: Product[];

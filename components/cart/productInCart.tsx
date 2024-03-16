@@ -8,8 +8,6 @@ import Quantity from "../product/quantity-selector/quantity";
 import { useCartStore } from "@/store/cart/product";
 import { currencyFormat } from "@/utils/format";
 import ProductImage from "../product/image/productImage";
-import { redirect } from "next/navigation";
-import Title from "@/components/title/title";
 import Link from "next/link";
 
 const ProductInCart = () => {
@@ -19,10 +17,6 @@ const ProductInCart = () => {
   const updateProductQuantity = useCartStore(
     (state) => state.updateProductQuantity
   );
-
-  // useEffect(() => {
-  //   if (totalItemCart === 1 ? "/cart" : redirect("/")) return;
-  // }, [totalItemCart]);
 
   return (
     <ScrollArea className="md:h-[550px]">

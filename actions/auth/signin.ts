@@ -4,7 +4,6 @@ import { z } from "zod";
 import { userbyEmail } from "../user";
 import { AuthError } from "next-auth";
 import { signIn } from "@/auth";
-import { default_login_redirect } from "@/routes";
 
 export const signin = async (values: z.infer<typeof signinSchema>) => {
   const validatefield = signinSchema.safeParse(values);
@@ -30,7 +29,7 @@ export const signin = async (values: z.infer<typeof signinSchema>) => {
     await signIn("credentials", {
       email: email.toLowerCase(),
       password,
-      redirectTo: default_login_redirect,
+      redirectTo: "/",
     });
   } catch (error) {
     if (error instanceof AuthError) {

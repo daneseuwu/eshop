@@ -1,14 +1,13 @@
-
 import { CardFooter } from "../ui/card";
 import { Button } from "../ui/button";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { signIn } from "next-auth/react";
-import { default_login_redirect } from "@/routes";
+// import { default_login_redirect } from "@/routes";
 
 const Social = () => {
-  const onClickSocial =  (provider: "google" | "github") => {
-     signIn(provider, {
-      callbackUrl: default_login_redirect,
+  const onClickSocial = (provider: "google" | "github") => {
+    signIn(provider, {
+      callbackUrl: "/",
     });
   };
 

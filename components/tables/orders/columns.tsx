@@ -15,13 +15,9 @@ import {
   DotsHorizontalIcon,
 } from "@radix-ui/react-icons";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Product } from "@/interfaces/product.interface";
 import Link from "next/link";
 import { Order } from "@prisma/client";
 import dayjs from "dayjs";
-import { CiBadgeDollar } from "react-icons/ci";
-import { No, Yes } from "./paid";
-import { IoHelpOutline } from "react-icons/io5";
 export const columns: ColumnDef<Order>[] = [
   {
     accessorKey: "id",
@@ -121,13 +117,17 @@ export const columns: ColumnDef<Order>[] = [
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(order.id)}
             >
-              Copy
+              Copy Order
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href={`/orders/${order.id}`}>View order</Link>
+              <Link href={`/orders/${order.id}`}>View Order</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>View customer</DropdownMenuItem>
+            <DropdownMenuItem >
+              <Link href={`/orders/print/${order.id}`}>
+                Print Order
+              </Link>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

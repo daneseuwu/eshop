@@ -1,5 +1,6 @@
 import { getcategories } from "@/actions/category/category";
 import { productSlug } from "@/actions/products/product";
+import { auth } from "@/auth";
 import ProductForm from "@/components/product/productForm";
 import { redirect } from "next/navigation";
 
@@ -10,6 +11,11 @@ interface Props {
 }
 const Page = async ({ params }: Props) => {
   const { slug } = params;
+  
+  const session = await auth();
+  if (!session) {
+    redirect("/auth/signin");
+  }
 
   const [product, categories] = await Promise.all([
     productSlug(slug),
@@ -19,7 +25,6 @@ const Page = async ({ params }: Props) => {
   if (!product && slug !== "new") {
     redirect("/admin/products");
   }
-  const title = slug === "new" ? "New product" : "Edit product";
 
   return <ProductForm product={product ?? {}} categories={categories} />;
 };

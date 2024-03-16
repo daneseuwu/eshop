@@ -89,13 +89,6 @@ const Addtocart = ({ product }: Props) => {
           variant="default"
           className="w-full"
         >
-          Buy now
-        </Button>
-        <Button
-          onClick={() => addTocart()}
-          variant="outline"
-          className="w-full"
-        >
           Add to cart
         </Button>
       </CardFooter>

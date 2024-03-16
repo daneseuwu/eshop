@@ -1,12 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
+import { CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
@@ -16,7 +11,7 @@ import { z } from "zod";
 import { useTransition } from "react";
 import { signin } from "@/actions/auth/signin";
 import { toast } from "sonner";
-
+import { useRouter } from "next/navigation";
 const signinSchema = z.object({
   email: z.string().email().min(3, {
     message: "Email must be at least 3 characters",
@@ -28,7 +23,7 @@ const signinSchema = z.object({
 
 const Signin = () => {
   const [isPending, startTransition] = useTransition();
-
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -42,10 +37,12 @@ const Signin = () => {
   const onSubmit = (values: z.infer<typeof signinSchema>) => {
     startTransition(async () => {
       await signin(values).then((data) => {
+        if (data?.ok) {
+          toast.success("Signin success");
+          router.push("/");
+        }
         if (data?.error) {
-          toast.success(data.error);
-        } else if (data?.ok) {
-          return;
+          toast.error(data.error);
         }
       });
     });

@@ -1,6 +1,7 @@
+
 import Footer from "@/components/footer/footer";
 import Nav from "@/components/nav/nav";
-
+import { PDFViewer } from '@react-pdf/renderer';
 
 interface Props {
   children: React.ReactNode;

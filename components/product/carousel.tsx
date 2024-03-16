@@ -13,34 +13,46 @@ interface Props {
 }
 const CarouselImage = ({ images, title }: Props) => {
   return (
-    <Carousel
-      plugins={[
-        Autoplay({
-          delay: 4000,
-        }),
-      ]}
-    >
-      <CarouselContent>
-        <CarouselItem>
-          <ProductImage
-            src={images[0]}
-            alt={title}
-            width={600}
-            height={600}
-            className="rounded-2xl object-cover w-[550px]"
-          />
-        </CarouselItem>
-        <CarouselItem>
-          <ProductImage
-            src={images[1]}
-            alt={title}
-            width={600}
-            height={600}
-            className="rounded-2xl object-cover w-[550px]"
-          />
-        </CarouselItem>
-      </CarouselContent>
-    </Carousel>
+    <div>
+      <Carousel
+        plugins={[
+          Autoplay({
+            delay: 4000,
+          }),
+        ]}
+      >
+        <CarouselContent>
+          {images.map((image, index) => (
+            <CarouselItem key={index}>
+              <ProductImage
+                src={image}
+                alt={title}
+                width={600}
+                height={600}
+                className="rounded-2xl object-cover w-[550px]"
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+
+      <div className="pt-2 flex gap-2">
+        <ProductImage
+          src={images[0]}
+          alt={title}
+          width={100}
+          height={100}
+          className="rounded-2xl object-cover hover:border cursor-pointer"
+        />
+        <ProductImage
+          src={images[1]}
+          alt={title}
+          width={100}
+          height={100}
+          className="rounded-2xl object-cover hover:border cursor-pointer"
+        />
+      </div>
+    </div>
   );
 };
 

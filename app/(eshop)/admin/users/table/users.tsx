@@ -14,6 +14,7 @@ import { changeUserRol } from "@/actions/users/change-user-rol";
 interface Props {
   users: userInterface[];
 }
+
 const UsersTable = ({ users }: Props) => {
   return (
     <div>

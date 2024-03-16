@@ -167,7 +167,7 @@ export const Signup = () => {
             <span>I ready a account?</span>
           </Link>
         </CardFooter>
-        <CardFooter></CardFooter>
+    
       </div>
     </div>
   );

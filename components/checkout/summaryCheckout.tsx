@@ -62,7 +62,9 @@ const SummaryCheckout = () => {
       </CardHeader>
 
       <CardContent className="flex flex-col gap-2">
-        <Label >{address.firstname} {address.lastname}</Label>
+        <Label>
+          {address.firstname} {address.lastname}
+        </Label>
         <Label className="text-xs">{address.address}</Label>
         <Label className="text-xs">{address.country}</Label>
         <Label className="text-xs">{address.city}</Label>
