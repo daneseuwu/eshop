@@ -7,7 +7,6 @@ import { auth } from "@/auth";
 const Page = async () => {
   const session = await auth();
   const { ok, products } = await getProducts();
-  console.log({products})
 
   if (!session) {
     redirect("/auth/signin");
