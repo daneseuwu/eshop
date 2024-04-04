@@ -14,7 +14,7 @@ const Page = async ({ searchParams }: Props) => {
   const { products, totalPages } = await productPagination({
     page,
   });
-  console.log({products})
+
   if (products.length === 0) {
     redirect("/");
   }
