@@ -10,7 +10,7 @@ export interface PaginationOption {
 
 export const productPagination = async ({
   page = 1,
-  take = 10,
+  take = 50,
   gender,
 }: PaginationOption) => {
   if (isNaN(Number(page))) page = 1;
