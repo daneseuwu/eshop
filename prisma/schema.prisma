@@ -136,15 +136,6 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-model verificationToken {
-  id     String   @id @default(uuid())
-  email  String
-  token  String   @unique
-  expire DateTime
-
-  @@unique([email, token])
-}
-
 enum Rol {
   user
   admin
