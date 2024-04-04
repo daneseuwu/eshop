@@ -31,7 +31,7 @@ const ProductCard = ({ product }: Props) => {
 
       <div className="py-2">
         <Link href={`/product/${product.slug}`} className="text-lg">
-          <Label className="cursor-pointer">{product.title}</Label>
+          <Label className="cursor-pointer hover:underline">{product.title}</Label>
         </Link>
       </div>
 
