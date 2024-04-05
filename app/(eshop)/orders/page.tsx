@@ -29,7 +29,7 @@ const Page = async () => {
           <input
             placeholder="Search"
             type="text"
-            className="w-full rounded-2xl border  py-2.5 pl-8  text-sm text-gray-500 placeholder:text-gray-500 focus:outline-none"
+            className="w-full rounded-xl border  py-2.5 pl-8  text-sm text-gray-500 placeholder:text-gray-500 focus:outline-none"
           />
         </div>
       </div>
