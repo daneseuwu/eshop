@@ -14,9 +14,9 @@ const Nav = async () => {
     <main>
       <div className="flex justify-between items-center pt-1 pb-2">
         <div>
-          <Link href="/" className=" flex items-center font-bold text-2xl text-red-500 font-serif">
+          <Link href="/" className=" flex items-center font-bold md:text-2xl text-red-500 font-serif">
             <Image src={ShoppingCenter} alt="shopping center" width={35} />
-            <p>Shopping Center</p>
+            <p >Shopping Center</p>
           </Link>
         </div>
         <div className="md:flex gap-6 hidden">
