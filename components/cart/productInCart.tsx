@@ -8,19 +8,16 @@ import { useCartStore } from "@/store/cart/product";
 import { currencyFormat } from "@/utils/format";
 import ProductImage from "../product/image/productImage";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 const ProductInCart = () => {
+  const totalItemCart = useCartStore((state) => state.getTotalItem());
+
   const productInCart = useCartStore((state) => state.cart);
   const removeProductCart = useCartStore((state) => state.removeProduct);
 
   const updateProductQuantity = useCartStore(
     (state) => state.updateProductQuantity
   );
-
-  if (productInCart.length === 0) {
-    redirect("/empty");
-  }
 
   return (
     <ScrollArea className="md:h-[550px]">
