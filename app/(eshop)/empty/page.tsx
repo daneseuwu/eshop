@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import Empti from "@/public/empty.png";
+import Empty from "@/public/empty.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,9 +8,9 @@ const Page = () => {
     <main>
       <div className="flex  flex-col items-center justify-center gap-4">
         <div className="flex flex-col items-center justify-center ">
-          <Image src={Empti} alt="empty cart" width={150} height={150} />
+          <Image src={Empty} alt="empty cart" width={150} height={150} />
         </div>
-        {/* <Button>
+        {/* <Button size="sm">
           <Link href="/">Shopping</Link>
         </Button> */}
       </div>
