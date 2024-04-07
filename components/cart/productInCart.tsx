@@ -1,5 +1,4 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import { ScrollArea } from "../ui/scroll-area";
 import { CardContent } from "../ui/card";
 import { Label } from "../ui/label";
@@ -9,6 +8,7 @@ import { useCartStore } from "@/store/cart/product";
 import { currencyFormat } from "@/utils/format";
 import ProductImage from "../product/image/productImage";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 const ProductInCart = () => {
   const productInCart = useCartStore((state) => state.cart);
@@ -17,6 +17,10 @@ const ProductInCart = () => {
   const updateProductQuantity = useCartStore(
     (state) => state.updateProductQuantity
   );
+
+  if (productInCart.length === 0) {
+    redirect("/empty");
+  }
 
   return (
     <ScrollArea className="md:h-[550px]">
