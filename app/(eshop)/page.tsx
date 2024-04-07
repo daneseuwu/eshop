@@ -22,7 +22,7 @@ const Page = async ({ searchParams }: Props) => {
   return (
     <main>
       <ProductList products={products} />
-      {/* <Paginationn totalPages={totalPages} /> */}
+      <Paginationn totalPages={totalPages} />
     </main>
   );
 };
